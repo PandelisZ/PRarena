@@ -23,7 +23,7 @@ def get_headers():
 
 
 # Search queries - tracking all PR metrics
-# Organized by agent: total, merged, non-draft for each (now 6 agents, 18 metrics)
+# Organized by agent: total, merged, non-draft for each
 Q = {
     # Copilot metrics
     "is:pr+head:copilot/": "copilot_total",
@@ -45,7 +45,7 @@ Q = {
     "is:pr+author:codegen-sh[bot]": "codegen_total",
     "is:pr+author:codegen-sh[bot]+is:merged": "codegen_merged",
     "is:pr+author:codegen-sh[bot]+-is:draft": "codegen_nondraft",
-    # Cosine metrics (new)
+    # Cosine metrics
     "is:pr+head:cosine/": "cosine_total",
     "is:pr+head:cosine/+is:merged": "cosine_merged",
     "is:pr+head:cosine/+-is:draft": "cosine_nondraft",
@@ -53,7 +53,7 @@ Q = {
 
 
 def collect_data():
-    # Get data from GitHub API - 18 metrics total (3 per agent: total, merged, non-draft, 6 agents)
+    # Get data from GitHub API - 18 metrics total (3 per agent: total, merged, non-draft)
     cnt = {}
 
     # Get headers with authentication if available
@@ -76,8 +76,6 @@ def collect_data():
 
     # Save data to CSV
     timestamp = dt.datetime.now(dt.UTC).strftime("%Y‑%m‑%d %H:%M:%S")
-    # Extended row: new order (total/merged for all, then nondraft for all)
-    # timestamp, copilot_total, copilot_merged, codex_total, codex_merged, cursor_total, cursor_merged, devin_total, devin_merged, codegen_total, codegen_merged, cosine_total, cosine_merged, copilot_nondraft, codex_nondraft, cursor_nondraft, devin_nondraft, codegen_nondraft, cosine_nondraft
     row = [
         timestamp,
         cnt["copilot_total"],
