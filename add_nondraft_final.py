@@ -2,6 +2,8 @@
 """
 Add non-draft PR data to existing data.csv - Single optimized script.
 This script strategically samples data points and handles GitHub API limitations properly.
+
+Supports 6 agents/queries: codegen, codex, copilot, cosine, cursor, devin.
 """
 
 import csv
@@ -16,11 +18,12 @@ HEADERS = {"Accept": "application/vnd.github+json", "User-Agent": "PR-Watcher"}
 
 # Non-draft queries (excluding drafts with -is:draft)
 NONDRAFT_QUERIES = {
-    "is:pr+head:copilot/+-is:draft": "copilot_nondraft",
+    "author:codegen-sh[bot]+-is:draft": "codegen_nondraft",
     "is:pr+head:codex/+-is:draft": "codex_nondraft",
+    "is:pr+head:copilot/+-is:draft": "copilot_nondraft",
+    "is:pr+head:cosine/+-is:draft": "cosine_nondraft",
     "is:pr+head:cursor/+-is:draft": "cursor_nondraft",
     "author:devin-ai-integration[bot]+-is:draft": "devin_nondraft",
-    "author:codegen-sh[bot]+-is:draft": "codegen_nondraft",
 }
 
 

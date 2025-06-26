@@ -28,6 +28,10 @@ Explore the GitHub search queries used:
 - **Merged Codegen PRs**: [https://github.com/search?q=is:pr+author:codegen-sh[bot]+is:merged&type=pullrequests](https://github.com/search?q=is:pr+author:codegen-sh[bot]+is:merged&type=pullrequests)
   
 
+- **All Cosine PRs**: [https://github.com/search?q=is:pr+head:cosine/&type=pullrequests](https://github.com/search?q=is:pr+head:cosine/&type=pullrequests)
+- **Merged Cosine PRs**: [https://github.com/search?q=is:pr+head:cosine/+is:merged&type=pullrequests](https://github.com/search?q=is:pr+head:cosine/+is:merged&type=pullrequests)
+  
+
 ---
 
 ![chart](docs/chart.png)
@@ -41,3 +45,4 @@ Explore the GitHub search queries used:
 | Cursor | 2,630 | 1,926 | 73.23% |
 | Devin | 29,138 | 18,601 | 63.84% |
 | Codegen | 4,163 | 1,695 | 40.72% |
+| Cosine | 0 | 0 | 0.00% |
